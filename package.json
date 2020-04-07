@@ -14,12 +14,10 @@
   "author": "linjilei",
   "license": "ISC",
   "dependencies": {
-    "@types/jquery": "^3.3.34",
     "@types/koa": "^2.11.3",
     "@types/lodash": "^4.14.149",
     "@types/node": "^13.11.0",
     "@types/webpack": "^4.41.10",
-    "jquery": "^3.4.1",
     "koa": "^2.11.0",
     "lodash": "^4.17.15",
     "typescript": "^3.8.3",
@@ -29,5 +27,8 @@
     "dist",
     "index.js",
     "index.html"
-  ]
+  ],
+  "readme": "https://github.com/xiaoyueguang/html-unit/blob/master/README.MD",
+  "homepage": "https://github.com/xiaoyueguang/html-unit",
+  "bugs": {}
 }

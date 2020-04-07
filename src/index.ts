@@ -1,8 +1,8 @@
 import Koa from 'koa'
 import { resolve } from 'path'
-import fs, { readFileSync, writeFileSync } from 'fs'
+import fs, { readFileSync } from 'fs'
 import { exec } from 'child_process'
-import webpack, { Watching } from 'webpack'
+import webpack from 'webpack'
 import _ from 'lodash'
 
 const CWD = process.cwd()
@@ -33,19 +33,12 @@ function router (url: URL): string {
     return readFileSync(resolve(__dirname, '../index.html'), 'utf-8')
   }
 
-  if (pathname.includes('/unit')) {
-    return 'hai'
-  }
-
   if (pathname.includes('/html')) {
     return readFileSync(resolve(HTML_PATH, searchParams.get('name') as string), 'utf-8')
   }
 
   if (pathname.includes('/main.js')) {
     return readFileSync(resolve(__dirname, './browser.js'), 'utf-8')
-  }
-  if (pathname.includes('/jquery.js')) {
-    return readFileSync(resolve(__dirname, '../node_modules/jquery/dist/jquery.js'), 'utf-8')
   }
 
   if (pathname.includes('bundle.js')) {
@@ -58,7 +51,7 @@ function router (url: URL): string {
 // 监视
 exec(`tsc ${resolve(__dirname, './browser.ts')} --watch`)
 exec(`cd ${CWD} && npx tsc --watch`)
-console.log(resolve(CWD, './dist'))
+
 const SPEC_FILE_RE = /spec\.js$/
 
 const watchFiles: Set<string> = new Set()
@@ -79,7 +72,7 @@ const build = _.debounce(() => {
     devtool: '#@inline-source-map'
   })
   compiler.run((err, stat) => {
-    console.log('编译好了')
+    console.log('编译完成')
   })
 })
 
