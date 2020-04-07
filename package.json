@@ -1,6 +1,6 @@
 {
   "name": "html-unit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -27,6 +27,7 @@
   },
   "files": [
     "dist",
-    "index.js"
+    "index.js",
+    "index.html"
   ]
 }
